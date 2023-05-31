@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pers.yuweiyi.YoE_logistics.controller.MainStageController">
+
+    <children>
+        <BorderPane prefHeight="640.0" prefWidth="590.0">
+            <top>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="欢迎进入系统" BorderPane.alignment="CENTER_LEFT" />
+            </top>
+            <left>
+                <TreeView fx:id="main_treeview" onMouseClicked="#mainTreeViewClick" prefHeight="360.0" prefWidth="126.0" BorderPane.alignment="TOP_LEFT" />
+            </left>
+            <center>
+                <ScrollPane prefHeight="600.0" BorderPane.alignment="CENTER">
+                    <content>
+                        <AnchorPane fx:id="main_pane_under_scroll" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="593.0" prefWidth="480.0" />
+                    </content>
+                </ScrollPane>
+            </center>
+            <bottom>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="this system is created by NikolaZhang!" BorderPane.alignment="CENTER" />
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>

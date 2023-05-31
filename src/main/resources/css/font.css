@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "SmileySans";
+    src:
+        url("/font/SmileySans-Oblique.ttf") format("truetype"),
+        url("/font/SmileySans-Oblique.ttf.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "LXGWWenKai";
+    src:
+        url("/font/LXGWWenKai-Regular.ttf") format("truetype");
+}
+
+.font-SmileySans{
+    font-family: "SmileySans";
+}
+
+.font-LXGWWenKai{
+    font-family: "LXGWWenKai";
+}
