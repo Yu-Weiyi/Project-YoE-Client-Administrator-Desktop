@@ -49,9 +49,7 @@ public class LoginStageController implements Initializable {
     }
 
     @FXML
-    public void handleSubmitButtonAction(ActionEvent actionEvent) throws IOException {
-        //TODO go mainWindow
-
+    public void onSubmitButtonClick(ActionEvent actionEvent) throws IOException {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         WindowRefreshUtil windowRefreshUtil = (WindowRefreshUtil) context.getBean("windowRefreshUtil");
         AdministratorAccountService administratorAccountService = (AdministratorAccountServiceImpl) context.getBean("administratorAccountServiceImpl");

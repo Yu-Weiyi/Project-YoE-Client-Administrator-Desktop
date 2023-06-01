@@ -1,31 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTreeView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pers.yuweiyi.YoE_logistics.controller.MainStageController">
-
     <children>
-        <BorderPane prefHeight="640.0" prefWidth="590.0">
+        <BorderPane prefHeight="690" prefWidth="1280">
             <top>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="欢迎进入系统" BorderPane.alignment="CENTER_LEFT" />
+                <BorderPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <left>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                            <image>
+                                <Image url="@../image/logo_YoE.png" />
+                            </image>
+                            <BorderPane.margin>
+                                <Insets left="60.0" />
+                            </BorderPane.margin>
+                        </ImageView>
+                    </left>
+               <right>
+                  <JFXTextArea fx:id="nowAccountIdJFXTextArea" focusColor="#16baaa" text="当前账号：" BorderPane.alignment="CENTER" />
+               </right>
+                </BorderPane>
             </top>
             <left>
-                <TreeView fx:id="main_treeview" onMouseClicked="#mainTreeViewClick" prefHeight="360.0" prefWidth="126.0" BorderPane.alignment="TOP_LEFT" />
+                <JFXTreeView fx:id="mainJFXTreeView" onMouseClicked="#onMainJFXTreeViewClick" prefHeight="360.0" prefWidth="126.0" BorderPane.alignment="TOP_LEFT" />
             </left>
-            <center>
-                <ScrollPane prefHeight="600.0" BorderPane.alignment="CENTER">
-                    <content>
-                        <AnchorPane fx:id="main_pane_under_scroll" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="593.0" prefWidth="480.0" />
-                    </content>
-                </ScrollPane>
-            </center>
-            <bottom>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="this system is created by NikolaZhang!" BorderPane.alignment="CENTER" />
-            </bottom>
+         <bottom>
+            <JFXTextArea editable="false" focusColor="#16baaa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="力争上「邮」「易」览神州" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <content>
+                  <AnchorPane fx:id="mainScrollPaneAnchorPane" prefHeight="200.0" prefWidth="200.0">
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding></AnchorPane>
+               </content>
+               <BorderPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </BorderPane.margin>
+            </ScrollPane>
+         </center>
         </BorderPane>
     </children>
 </AnchorPane>

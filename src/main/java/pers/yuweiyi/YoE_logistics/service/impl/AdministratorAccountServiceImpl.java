@@ -29,9 +29,6 @@ public class AdministratorAccountServiceImpl implements AdministratorAccountServ
         this.password = newPassword;
     }
 
-    public String getPassword() {
-        return password;
-    }
     @Override
     public boolean loginCheck(String accountId, String password) {
         //TODO check account when login

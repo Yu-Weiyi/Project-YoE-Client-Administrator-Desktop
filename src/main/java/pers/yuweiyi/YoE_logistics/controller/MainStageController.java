@@ -1,11 +1,22 @@
 package pers.yuweiyi.YoE_logistics.controller;
 
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTreeView;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pers.yuweiyi.YoE_logistics.service.impl.AdministratorAccountServiceImpl;
 import pers.yuweiyi.YoE_logistics.util.WindowRefreshUtil;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,14 +33,77 @@ import java.util.ResourceBundle;
 public class MainStageController implements Initializable {
     private WindowRefreshUtil windowRefreshUtil;
 
+    @FXML
+    private JFXTextArea nowAccountIdJFXTextArea;
+    @FXML
+    private JFXTreeView mainJFXTreeView;
+//    @FXML
+//    private JFXScrollPane mainScrollPane;
+    @FXML
+    private AnchorPane mainScrollPaneAnchorPane;
+
     @Override
-    public void initialize(URL location, ResourceBundle resources) {}
+    public void initialize(URL location, ResourceBundle resources) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdministratorAccountServiceImpl administratorAccountServiceImpl = (AdministratorAccountServiceImpl) context.getBean("administratorAccountServiceImpl");
+
+        nowAccountIdJFXTextArea.setText("当前账号：" + administratorAccountServiceImpl.getAccountId());
+
+        initTreeView();
+    }
 
     public void setWindowRefreshUtil(WindowRefreshUtil windowRefreshUtil) {
         this.windowRefreshUtil = windowRefreshUtil;
     }
 
+    private void initTreeView() {
+        TreeItem<String> treeItemRoot;
+        TreeItem<String> treeItemOfWelcomeViewNode;
+        TreeItem<String> treeItemOfStationManagementViewNode;
+        TreeItem<String> treeItemOfPathWeightViewNode;
+
+        treeItemRoot = new TreeItem<String>("功能一览");
+        treeItemRoot.setExpanded(true);
+        treeItemRoot.getChildren().addAll(
+                treeItemOfWelcomeViewNode = new TreeItem<String>("欢迎"),
+                treeItemOfStationManagementViewNode = new TreeItem<String>("站点管理")
+                //TODO more
+        );
+
+        treeItemOfStationManagementViewNode.setExpanded(true);
+        treeItemOfStationManagementViewNode.getChildren().addAll(
+                treeItemOfPathWeightViewNode = new TreeItem<String>("路径权重")
+        );
+
+        mainJFXTreeView.setRoot(treeItemRoot);
+    }
+
+    private void changeViewNode(String viewNodePath) throws IOException {
+        ObservableList<Node> mainJFXScrollPaneAnchorPaneChildren = mainScrollPaneAnchorPane.getChildren();
+        mainJFXScrollPaneAnchorPaneChildren.clear();
+        mainJFXScrollPaneAnchorPaneChildren.add(FXMLLoader.load(getClass().getResource(viewNodePath)));
+    }
+
     @FXML
-    public void mainTreeViewClick(MouseEvent mouseEvent) {
+    public void onMainJFXTreeViewClick(MouseEvent mouseEvent) throws IOException {
+        TreeItem<String> selectedTreeItem = (TreeItem<String>) mainJFXTreeView.getSelectionModel().getSelectedItem();
+        String viewNodePath = "";
+        switch (selectedTreeItem.getValue()) {
+            case "功能一览":
+                break;
+            case "欢迎":
+                viewNodePath = "/fxml/mainStageWelcomeViewNode.fxml";
+                changeViewNode(viewNodePath);
+                break;
+            case "站点管理":
+//                viewNodePath = "/fxml/mainStageStationManagementViewNode.fxml";
+                break;
+            case "路径权重":
+                viewNodePath = "/fxml/mainStageUpdatePathWeightViewNode.fxml";
+                changeViewNode(viewNodePath);
+                break;
+            default:
+                break;
+        }
     }
 }

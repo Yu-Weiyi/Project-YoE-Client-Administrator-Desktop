@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pers.yuweiyi.YoE_logistics.controller.MainStagePathWeightViewNodeController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="300.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="311.0" minWidth="10.0" prefWidth="300.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2">
+         <left>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Label prefHeight="0.0" prefWidth="200.0" text="路径起点站点名称" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </BorderPane.margin></Label>
+               </top>
+               <center>
+                  <JFXTextField fx:id="pathSourceStationNameJFXTextField" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </BorderPane.margin></JFXTextField>
+               </center>
+            </BorderPane>
+         </left>
+         <right>
+             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                 <top>
+                     <Label prefHeight="0.0" prefWidth="200.0" text="路径终点站点名称" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </BorderPane.margin></Label>
+                 </top>
+                 <center>
+                     <JFXTextField fx:id="pathTargetStationNameJFXTextField" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </BorderPane.margin></JFXTextField>
+                 </center>
+             </BorderPane>
+         </right>
+      </BorderPane>
+      <JFXTextArea fx:id="nowPathWeightJFXTextArea" prefHeight="61.0" prefWidth="300.0" text="点击按钮以查询权重→" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="60.0" left="60.0" right="60.0" top="60.0" />
+         </GridPane.margin>
+      </JFXTextArea>
+      <JFXTextField fx:id="newPathWeightJFXTextField" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="60.0" left="60.0" right="60.0" top="60.0" />
+         </GridPane.margin>
+      </JFXTextField>
+      <JFXButton fx:id="searchNowPathWeightJFXButton" buttonType="RAISED" style="-fx-background-color: #16baaa;" ripplerFill="#ffb800" mnemonicParsing="false" onMouseClicked="#onSearchNowPathWeightButtonClick" text="查询" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <JFXButton fx:id="updateNewPathWeightJFXButton" buttonType="RAISED" style="-fx-background-color: #16baaa;" ripplerFill="#ffb800" mnemonicParsing="false" onMouseClicked="#onUpdateNewPathWeightButtonClick" text="修改" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   </children>
+</GridPane>

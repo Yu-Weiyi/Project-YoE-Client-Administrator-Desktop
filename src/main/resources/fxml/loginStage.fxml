@@ -42,7 +42,7 @@
     </Label>
     <JFXPasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     <Label fx:id="errorMessage" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-    <JFXButton fx:id="submitButton" buttonType="RAISED" defaultButton="true" onAction="#handleSubmitButtonAction" prefHeight="60" prefWidth="120" text="登录" style="-fx-background-color: #16baaa;" ripplerFill="#ffb800" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
+    <JFXButton fx:id="submitButton" buttonType="RAISED" defaultButton="true" onAction="#onSubmitButtonClick" prefHeight="60" prefWidth="120" text="登录" style="-fx-background-color: #16baaa;" ripplerFill="#ffb800" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
         <GridPane.margin>
             <Insets bottom="20" left="0" right="0" top="20" />
         </GridPane.margin>
