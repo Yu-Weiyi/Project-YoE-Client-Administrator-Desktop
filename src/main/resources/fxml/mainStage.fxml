@@ -30,7 +30,7 @@
                 </BorderPane>
             </top>
             <left>
-                <JFXTreeView fx:id="mainJFXTreeView" onMouseClicked="#onMainJFXTreeViewClick" prefHeight="360.0" prefWidth="126.0" BorderPane.alignment="TOP_LEFT" />
+                <JFXTreeView fx:id="mainJFXTreeView" onMouseClicked="#onMainJFXTreeViewClick" prefHeight="360.0" prefWidth="126.0" BorderPane.alignment="TOP_LEFT" style="-fx-background-color: #16baaa; -fx-border-color: #16baaa; -fx-progress-color: #16baaa; -fx-color-label-visible: #16baaa" />
             </left>
          <bottom>
             <JFXTextArea editable="false" focusColor="#16baaa" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="力争上「邮」「易」览神州" BorderPane.alignment="CENTER" />

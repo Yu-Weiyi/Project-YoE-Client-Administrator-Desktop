@@ -61,18 +61,26 @@ public class MainStageController implements Initializable {
         TreeItem<String> treeItemOfWelcomeViewNode;
         TreeItem<String> treeItemOfStationManagementViewNode;
         TreeItem<String> treeItemOfPathWeightViewNode;
+        TreeItem<String> treeItemOfOrderManagementViewNode;
+        TreeItem<String> treeItemOfRecordUpdateViewNode;
 
         treeItemRoot = new TreeItem<String>("功能一览");
         treeItemRoot.setExpanded(true);
         treeItemRoot.getChildren().addAll(
                 treeItemOfWelcomeViewNode = new TreeItem<String>("欢迎"),
-                treeItemOfStationManagementViewNode = new TreeItem<String>("站点管理")
+                treeItemOfStationManagementViewNode = new TreeItem<String>("站点管理"),
+                treeItemOfOrderManagementViewNode = new TreeItem<String>("订单管理")
                 //TODO more
         );
 
         treeItemOfStationManagementViewNode.setExpanded(true);
         treeItemOfStationManagementViewNode.getChildren().addAll(
                 treeItemOfPathWeightViewNode = new TreeItem<String>("路径权重")
+        );
+
+        treeItemOfOrderManagementViewNode.setExpanded(true);
+        treeItemOfOrderManagementViewNode.getChildren().addAll(
+                treeItemOfRecordUpdateViewNode = new TreeItem<String>("记录更新")
         );
 
         mainJFXTreeView.setRoot(treeItemRoot);
@@ -89,17 +97,16 @@ public class MainStageController implements Initializable {
         TreeItem<String> selectedTreeItem = (TreeItem<String>) mainJFXTreeView.getSelectionModel().getSelectedItem();
         String viewNodePath = "";
         switch (selectedTreeItem.getValue()) {
-            case "功能一览":
-                break;
             case "欢迎":
                 viewNodePath = "/fxml/mainStageWelcomeViewNode.fxml";
                 changeViewNode(viewNodePath);
                 break;
-            case "站点管理":
-//                viewNodePath = "/fxml/mainStageStationManagementViewNode.fxml";
-                break;
             case "路径权重":
-                viewNodePath = "/fxml/mainStageUpdatePathWeightViewNode.fxml";
+                viewNodePath = "/fxml/mainStagePathWeightViewNode.fxml";
+                changeViewNode(viewNodePath);
+                break;
+            case "记录更新":
+                viewNodePath = "/fxml/mainStageRecordUpdateViewNode.fxml";
                 changeViewNode(viewNodePath);
                 break;
             default:

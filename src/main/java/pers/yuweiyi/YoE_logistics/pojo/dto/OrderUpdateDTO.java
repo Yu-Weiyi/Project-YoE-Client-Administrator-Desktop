@@ -24,7 +24,7 @@ public class OrderUpdateDTO extends DTO{
     @NotNull private String station_name;
     @NotNull private String message;
 
-    OrderUpdateDTO(String orderId, RecordTypeEnum recordType, String stationName, String message) {
+    public OrderUpdateDTO(String orderId, RecordTypeEnum recordType, String stationName, String message) {
         this.order_id = orderId;
         this.record_type = String.valueOf(recordType.ordinal());
         this.station_name = stationName;
