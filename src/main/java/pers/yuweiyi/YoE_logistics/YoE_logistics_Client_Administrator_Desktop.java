@@ -32,6 +32,7 @@ public class YoE_logistics_Client_Administrator_Desktop extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        //start
         log.info("YoE-logistics-Client-Administrator-Desktop: Program start");
 
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
